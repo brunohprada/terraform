@@ -14,7 +14,7 @@ resource "google_compute_subnetwork" "default" {
   private_ip_google_access = "true"
 }
 
-resource "google_compute_firewall" "defaul" {
+resource "google_compute_firewall" "default" {
   name = "fw-allow-ssh"
   network = "${google_compute_network.default.name}"
 
