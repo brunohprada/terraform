@@ -1,12 +1,12 @@
 // teste de provisionamento de rede
 
 resource "google_compute_network" "default" {
-  name = "lab-network-custom-machine"
+  name = "lab-network"
   auto_create_subnetworks = "false"
 }
 
 resource "google_compute_subnetwork" "default" {
-  name = "lab-network-custom-machine"
+  name = "lab-subnetwork"
   description = "descrição da sub-net"
   ip_cidr_range = "10.5.108.0/23"
   network = "${google_compute_network.default.self_link}"
@@ -23,7 +23,18 @@ resource "google_compute_firewall" "default" {
       ports = ["22"]
   }
 
-  source_tags = ["linux"]
+  target_tags = ["linux"]
+}
+
+resource "google_compute_firewall" "default" {
+  name = "fw-allow-icmp"
+  network = "${google_compute_network.default.name}"
+
+  allow {
+      protocol = "icmp"
+  }
+
+  target_tags = ["linux", "windows"]
 }
 
 
