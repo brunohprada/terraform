@@ -8,9 +8,9 @@ resource "google_compute_network" "default" {
 resource "google_compute_subnetwork" "default" {
   name = "lab-subnetwork"
   description = "descrição da sub-net"
-  ip_cidr_range = "10.5.108.0/23"
+  ip_cidr_range = "${var.compute_subnetwork_ip_cidr_range}"
   network = "${google_compute_network.default.self_link}"
-  region = "southamerica-east1"
+  region = "${var.compute_subnetwork_region}"
   private_ip_google_access = "true"
 }
 
