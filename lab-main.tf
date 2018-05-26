@@ -23,20 +23,9 @@ resource "google_compute_firewall" "default" {
       ports = ["22"]
   }
 
-  target_tags = ["linux"]
-}
-
-resource "google_compute_firewall" "default" {
-  name = "fw-allow-icmp"
-  network = "${google_compute_network.default.name}"
-
   allow {
       protocol = "icmp"
   }
 
-  target_tags = ["linux", "windows"]
+  target_tags = ["linux"]
 }
-
-
-
-
