@@ -1,10 +1,4 @@
 // teste de provisionamento de rede
-provider "Google" {
-  region = "southamerica-east1"
-}
-
-data "google_project" "default" {}
-data "google_compute_default_service_account" "default" {}
 
 resource "google_compute_network" "default" {
   name = "lab-network-custom-machine"
