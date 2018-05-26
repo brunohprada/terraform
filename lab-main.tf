@@ -14,16 +14,6 @@ resource "google_compute_subnetwork" "default" {
   private_ip_google_access = "true"
 }
 
-resource "google_compute_subnetwork" "default" {
-  name = "lab-subnetwork-internal"
-  description = "subnet interna"
-  ip_cidr_range = "${var.compute_subnetwork_ip_cidr_range_internal}"
-  network = "${google_compute_subnetwork.default.self_link}"
-  region = "${var.compute_subnetwork_region}"
-  private_ip_google_access = "true"
-}
-
-
 resource "google_compute_firewall" "default" {
   name = "fw-allow-ssh"
   network = "${google_compute_network.default.name}"
