@@ -5,3 +5,7 @@ variable "compute_subnetwork_ip_cidr_range" {
 variable "compute_subnetwork_region" {
   default = "southamerica-east1"
 }
+
+variable "compute_subnetwork_prefix_name" {
+  default = "teste"
+}
