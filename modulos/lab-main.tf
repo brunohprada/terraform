@@ -47,6 +47,6 @@ resource "google_compute_instance" "default" {
   }
 
   network_interface {
-    subnetwork = "${google_compute_subnetwork.default.name}"
+    subnetwork = "${compute_subnetwork.default.name}"
   }
 }
