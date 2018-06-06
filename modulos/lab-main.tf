@@ -1,7 +1,7 @@
 // teste de provisionamento de rede
 
 resource "google_compute_network" "default" {
-  name = "${var.google_compute_network}"
+  name = "${var.compute_network_name}"
   auto_create_subnetworks = "false"
 }
 

@@ -10,7 +10,17 @@ variable "compute_subnetwork_prefix_name" {
   default = "teste"
 }
 
-variable "google_compute_network" {
+variable "compute_network_name" {
   default = "rede-teste"
 }
+
+variable "compute_instance_name" {
+  default = "teste"
+}
+
+variable "compute_instance_machine_type" {
+  default = "n1-standard-1"
+}
+
+
 
