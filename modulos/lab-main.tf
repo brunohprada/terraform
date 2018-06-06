@@ -29,3 +29,24 @@ resource "google_compute_firewall" "default" {
 
   target_tags = ["${var.compute_subnetwork_prefix_name}-linux"]
 }
+
+resource "google_compute_instance" "default" {
+  name = "${var.compute_instance_name}"
+  region = "${var.compute_subnetwork_region}"
+  machine_type = "${var.compute_instance_machine_type}"
+  tags = ""
+
+  boot_disk {
+    auto_delete = "true"
+
+    initialize_params {
+      image = "centos_cloud/centos-7"
+      size = "10"
+      type = "pd-ssd"
+    }
+  }
+
+  network_interface {
+    subnetwork = "${google_compute_subnetwork.default.name}"
+  }
+}
