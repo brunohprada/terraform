@@ -34,7 +34,6 @@ resource "google_compute_instance" "default" {
   name = "${var.compute_instance_name}"
   region = "${var.compute_subnetwork_region}"
   machine_type = "${var.compute_instance_machine_type}"
-  tags = ""
 
   boot_disk {
     auto_delete = "true"
