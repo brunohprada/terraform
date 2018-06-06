@@ -9,3 +9,8 @@ variable "compute_subnetwork_region" {
 variable "compute_subnetwork_prefix_name" {
   default = "teste"
 }
+
+variable "google_compute_network" {
+  default = "rede-teste"
+}
+
