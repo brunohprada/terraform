@@ -9,14 +9,14 @@ resource "google_compute_subnetwork" "default" {
   name = "${var.compute_subnetwork_prefix_name}-lab-subnetwork"
   description = "descrição da sub-net"
   ip_cidr_range = "${var.compute_subnetwork_ip_cidr_range}"
-  network = "${google_compute_network.default.self_link}"
+  network = "${compute_network.default.self_link}"
   region = "${var.compute_subnetwork_region}"
   private_ip_google_access = "true"
 }
 
 resource "google_compute_firewall" "default" {
   name = "${var.compute_subnetwork_prefix_name}-fw-allow-ssh"
-  network = "${google_compute_network.default.name}"
+  network = "${compute_network.default.name}"
 
   allow {
       protocol = "tcp"
