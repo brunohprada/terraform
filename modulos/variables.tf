@@ -13,14 +13,3 @@ variable "compute_subnetwork_prefix_name" {
 variable "compute_network_name" {
   default = "rede-teste"
 }
-
-variable "compute_instance_name" {
-  default = "teste"
-}
-
-variable "compute_instance_machine_type" {
-  default = "n1-standard-1"
-}
-
-
-
